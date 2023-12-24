@@ -2,7 +2,10 @@ package com.mycompany.peluqieriacanina.persistencia;
 
 import com.mycompany.peluqieriacanina.logica.Duenio;
 import com.mycompany.peluqieriacanina.logica.Mascota;
+import com.mycompany.peluqieriacanina.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
+import static java.util.logging.Level.SEVERE;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,6 +28,16 @@ public class ControladoraPersistencia {
     
         return mascotaJpa.findMascotaEntities();
                 
+    }
+
+    public void borrarMascota(int num_Cliente) {
+        
+        try {
+            mascotaJpa.destroy(num_Cliente);
+        } catch (NonexistentEntityException e) {
+           Logger.getLogger(ControladoraPersistencia.class.getName()).log(SEVERE, null, e);
+        }
+        
     }
         
 }

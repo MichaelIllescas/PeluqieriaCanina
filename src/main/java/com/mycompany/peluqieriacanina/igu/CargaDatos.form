@@ -320,7 +320,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\jonii\OneDrive\Escritorio\recursos\logo.jpg"/>
+                  <Image iconType="2" name="C:\Users\jonii\OneDrive\Documentos\NetBeansProjects\PeluqieriaCanina\recursos\logo.jpg"/>
                 </Property>
               </Properties>
             </Component>
@@ -367,7 +367,7 @@
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\jonii\OneDrive\Escritorio\recursos\back_arrow_14429.png"/>
+              <Image iconType="2" name="C:\Users\jonii\OneDrive\Documentos\NetBeansProjects\PeluqieriaCanina\recursos\back_arrow_14429.png"/>
             </Property>
           </Properties>
           <Events>

@@ -90,7 +90,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Escritorio\\recursos\\logo.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\logo.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

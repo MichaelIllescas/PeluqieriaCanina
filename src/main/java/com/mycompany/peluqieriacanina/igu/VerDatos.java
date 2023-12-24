@@ -4,6 +4,8 @@ package com.mycompany.peluqieriacanina.igu;
 import com.mycompany.peluqieriacanina.logica.Controladora;
 import com.mycompany.peluqieriacanina.logica.Mascota;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -71,11 +73,11 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 0, 51));
         jLabel2.setText("Datos de Mascotas:");
 
-        btnEditar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Escritorio\\recursos\\editar.png")); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\editar.png")); // NOI18N
         btnEditar.setMaximumSize(new java.awt.Dimension(33, 39));
         btnEditar.setMinimumSize(new java.awt.Dimension(33, 39));
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Escritorio\\recursos\\eliminar.png")); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\eliminar.png")); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -94,7 +96,7 @@ public class VerDatos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)))
+                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jLabel2)
@@ -116,7 +118,7 @@ public class VerDatos extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Escritorio\\recursos\\back_arrow_14429.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\back_arrow_14429.png")); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -183,16 +185,43 @@ public class VerDatos extends javax.swing.JFrame {
         //controlo q la tabla no este vacia
         if (tablaDatos.getRowCount()>0){
             //controlo q se haya seleccionado a un registro
-            if(tablaDatos.getSelectedRow() !=1 ){
+            if(tablaDatos.getSelectedRow() != (-1) ){
+               //obtengo los datos del datos del elemento seleccionado y lo convierto a entero
                 int num_Cliente= Integer.parseInt(String.valueOf(tablaDatos.getValueAt(tablaDatos.getSelectedRow(),0)) );
-            } //VOY POR ACA
+                control.borrarMascota(num_Cliente);
+                
+                //confirmo la eliminacion
+                  mostrarMjeConfDelete("Se eliminó correctamente.", "info", "Confirmación.");                   cargarTabla();
+              
+            } else{
+                 mostrarMjeConfDelete("Debe seleccionar una mascota de la tabla.", "error", "Error al elminiar.");
+            }
         
+        }else {
+             mostrarMjeConfDelete("No hay nada para elminar en la taba.", "error", "Error al elminiar.");
         }
         
         
     }//GEN-LAST:event_btnEliminarActionPerformed
 
   
+    private void mostrarMjeConfDelete(String mensaje, String tipo, String titulo){
+    
+    
+        JOptionPane optionPane= new JOptionPane(mensaje);
+        if (tipo.equals("info" )){
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            
+        }else if(tipo.equals("error")){
+                     optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+                 };
+        JDialog dialog= optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+                
+    
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;

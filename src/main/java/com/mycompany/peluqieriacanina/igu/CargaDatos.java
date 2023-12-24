@@ -94,7 +94,7 @@ public class CargaDatos extends javax.swing.JFrame {
 
         cmbAtEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "SI", "NO" }));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Escritorio\\recursos\\logo.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\logo.jpg")); // NOI18N
 
         jLabel11.setText("Dirección:");
 
@@ -218,7 +218,7 @@ public class CargaDatos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Escritorio\\recursos\\back_arrow_14429.png")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\back_arrow_14429.png")); // NOI18N
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);

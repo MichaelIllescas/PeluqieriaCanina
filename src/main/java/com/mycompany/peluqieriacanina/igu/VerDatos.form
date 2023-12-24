@@ -120,7 +120,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="btnEliminar" max="32767" attributes="0"/>
-                                  <Component id="btnEditar" pref="60" max="32767" attributes="0"/>
+                                  <Component id="btnEditar" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -189,7 +189,7 @@
             <Component class="javax.swing.JButton" name="btnEditar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\jonii\OneDrive\Escritorio\recursos\editar.png"/>
+                  <Image iconType="2" name="C:\Users\jonii\OneDrive\Documentos\NetBeansProjects\PeluqieriaCanina\recursos\editar.png"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[33, 39]"/>
@@ -202,7 +202,7 @@
             <Component class="javax.swing.JButton" name="btnEliminar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\jonii\OneDrive\Escritorio\recursos\eliminar.png"/>
+                  <Image iconType="2" name="C:\Users\jonii\OneDrive\Documentos\NetBeansProjects\PeluqieriaCanina\recursos\eliminar.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -214,7 +214,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\jonii\OneDrive\Escritorio\recursos\back_arrow_14429.png"/>
+              <Image iconType="2" name="C:\Users\jonii\OneDrive\Documentos\NetBeansProjects\PeluqieriaCanina\recursos\back_arrow_14429.png"/>
             </Property>
           </Properties>
           <Events>
