@@ -15,8 +15,7 @@ import javax.swing.table.DefaultTableModel;
 public class VerDatos extends javax.swing.JFrame {
 
     Controladora control = null;
-    
-    
+
         
     public VerDatos() {
         control= new Controladora();
@@ -36,6 +35,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,11 +76,25 @@ public class VerDatos extends javax.swing.JFrame {
         btnEditar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\editar.png")); // NOI18N
         btnEditar.setMaximumSize(new java.awt.Dimension(33, 39));
         btnEditar.setMinimumSize(new java.awt.Dimension(33, 39));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\eliminar.png")); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jonii\\OneDrive\\Documentos\\NetBeansProjects\\PeluqieriaCanina\\recursos\\system_software_update_22485.png")); // NOI18N
+        btnActualizar.setMaximumSize(new java.awt.Dimension(33, 39));
+        btnActualizar.setMinimumSize(new java.awt.Dimension(33, 39));
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
             }
         });
 
@@ -94,9 +108,11 @@ public class VerDatos extends javax.swing.JFrame {
                         .addContainerGap(14, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jLabel2)
@@ -114,7 +130,9 @@ public class VerDatos extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
         );
 
@@ -198,11 +216,51 @@ public class VerDatos extends javax.swing.JFrame {
             }
         
         }else {
-             mostrarMjeConfDelete("No hay nada para elminar en la taba.", "error", "Error al elminiar.");
+             mostrarMjeConfDelete("No hay elementos para elminar en la taba.", "error", "Error al elminiar.");
         }
         
         
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+         if (tablaDatos.getRowCount()>0)
+         {
+            //controlo q se haya seleccionado a un registro
+            if(tablaDatos.getSelectedRow() != (-1) )
+            {
+                int num_Cliente= Integer.parseInt(String.valueOf(tablaDatos.getValueAt(tablaDatos.getSelectedRow(),0)) );
+                
+                ModificarDatos pantallaModif = new ModificarDatos(num_Cliente);
+                pantallaModif.setVisible(true);
+                pantallaModif.setLocationRelativeTo(null);
+                
+                this.dispose();
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }else{
+                 mostrarMjeConfDelete("Debe seleccionar una mascota de la tabla.", "error", "Error al elminiar.");
+                
+    
+          }
+        }else 
+        {
+             mostrarMjeConfDelete("No hay elementos para elminar en la taba.", "error", "Error al elminiar.");
+    
+        
+        
+        }    
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        cargarTabla();
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
   
     private void mostrarMjeConfDelete(String mensaje, String tipo, String titulo){
@@ -224,6 +282,7 @@ public class VerDatos extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
