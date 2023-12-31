@@ -11,11 +11,23 @@ import javax.swing.JOptionPane;
  */
 public class CargaDatos extends javax.swing.JFrame {
 
-  Controladora control = new  Controladora();; 
+  Controladora control = new  Controladora();
+        String nombreMasco;
+        String razaMasco;
+        String colorMasco;
+        String observacion;
+        String nombreDuenio; 
+        String celDuenio; 
+        String dirDuenio; 
+       
+        String alergico;
+        String atenEsp; 
     
     public CargaDatos() {
        // control= new  Controladora();
         initComponents();
+      
+        
     }
 
    
@@ -233,8 +245,8 @@ public class CargaDatos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel12)
-                        .addGap(182, 182, 182)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(173, 173, 173)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -245,11 +257,11 @@ public class CargaDatos extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(jLabel12)))
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
                 .addGap(27, 27, 27)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(131, 131, 131))
@@ -278,7 +290,7 @@ public class CargaDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void limpiar(){
-    txtNombre.setText("");
+        txtNombre.setText("");
         txtRaza.setText("");
         txtColor.setText("");
         txtObservaciones.setText("");
@@ -288,18 +300,29 @@ public class CargaDatos extends javax.swing.JFrame {
         txtNombreDuenio.setText("");
         txtDirDuen.setText("");
     }
+    
+    
+    private void obtenerDatos(){
+         nombreMasco= txtNombre.getText();
+         razaMasco= txtRaza.getText();
+         colorMasco= txtColor.getText();
+         observacion = txtObservaciones.getText();
+         nombreDuenio = txtNombreDuenio.getText();
+         celDuenio = txtCelularDuenio.getText();
+         dirDuenio = txtDirDuen.getText();
+         alergico = (String)cmbAlergico.getSelectedItem();
+         atenEsp = (String)cmbAtEsp.getSelectedItem();
+       
+    } 
+            
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        obtenerDatos();
+                
+        if(validarContenido()){
+            mostrarMensajeError();
+        }else{
         
-        String nombreMasco= txtNombre.getText();
-        String razaMasco= txtRaza.getText();
-        String colorMasco= txtColor.getText();
-        String observacion = txtObservaciones.getText();
-        String nombreDuenio = txtNombreDuenio.getText();
-        String celDuenio = txtCelularDuenio.getText();
-        String dirDuenio = txtDirDuen.getText();
-        String alergico = (String)cmbAlergico.getSelectedItem();
-        String atenEsp = (String)cmbAtEsp.getSelectedItem();
-        
+       
         control.guardar(nombreMasco,razaMasco, colorMasco, observacion, nombreDuenio,celDuenio,dirDuenio, alergico, atenEsp  );
       
        limpiar();
@@ -311,17 +334,39 @@ public class CargaDatos extends javax.swing.JFrame {
         dialog.setVisible(true);
                 
     
-        
+        }
         
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private boolean validarContenido(){
+       
+         obtenerDatos();
+    if(nombreMasco.isEmpty() || razaMasco.isEmpty() || colorMasco.isEmpty()|| nombreDuenio.isEmpty() || celDuenio.isEmpty() ||  dirDuenio.isEmpty() )
+        return true;
+    else 
+        return false;
+    
+    }
+    public void mostrarMensajeError(){
+     JOptionPane optionPane= new JOptionPane("Faltan completar campos");
+        optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        JDialog dialog= optionPane.createDialog("Error");
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
+    
+    
+    
+    
+    
+    
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
     
